@@ -1,33 +1,72 @@
-I'm using linux(ubuntu 22) user, And at the moment I didn't have a windows to test this :(
+# Student Management System (Console + JDBC) - Because Who Doesn't Love Typing in a Terminal?
 
-So here is my workflow anyway:
+Oh joy, you're on Linux (Ubuntu 22), and apparently, Windows is too mainstream for you. Lucky you! This is a "Student Management System" built with the elegance of console I/O and JDBC. Because nothing says "modern development" like manually typing commands and hoping MySQL doesn't crash. (I use chatgpt for modify this readme file! god forgive me!)
 
-downloaded jdk from "https://www.oracle.com/java/technologies/downloads/#java21" 
+## Tech Stack (Or Lack Thereof)
+- **Java 8+**: Because why use anything newer when you can cling to the past?
+- **JDBC (MySQL Connector/J)**: The bridge between your code and database chaos.
+- **MySQL**: The database that pretends to be reliable.
+- **Console-based input/output**: Because GUIs are for quitters.
+- **Docker (Recommended)**: Because setting up MySQL manually is a special kind of masochism.
 
-and installed mysql-connector-j_9.4.0-1ubuntu22.04_all.deb
+## Setup Instructions (Recommended - Seriously, Don't Skip This)
+Just run:
+```
+docker-compose up
+```
+And pray it works. If it doesn't, well, that's on you.
 
-and files can be find at "ls /usr/share/java/
-java-atk-wrapper.jar
-java_defaults.mk
-libintl-0.21.jar
-libintl.jar
-mysql-connector-j-9.4.0.jar
-mysql-connector-java-9.4.0.jar"
+### Ensure Containers Are Running (Because They Might Not Be)
+```
+docker-compose ps
+```
+Or, if you're feeling adventurous and know the container ID:
+```
+docker exec -it <container_id> bash
+```
 
-then I coppied into this project structure : cp /usr/share/java/mysql-connector-j-9.4.0.jar ~/SuckingJavaProjects/student-db/lib/
+### Run the Thing (Finally!)
+Inside the container:
+```
+java -cp "lib/*:src" StudentManager
+```
+Watch the magic happen... or not.
 
-Instructions:
+## Setup Instructions (Not Recommended - For the Brave or Foolish)
+If you're dumb enough to do this manually (spoiler: you are), here's how:
 
-# Student Management System (Console + JDBC)
+1. Install MySQL and create a database called `student_db`. Good luck with that.
+2. Run the schema definition from `schema.sql` in MySQL. Hope you don't mess up the syntax.
+3. How to run:
+   ```
+   javac -cp "lib/*:." src/StudentManager.java
+   java -cp "lib/*:src" StudentManager
+   ```
+   Compile and run like it's 1995.
 
+## Workflow (My Painful Journey)
+Here's how I suffered through this:
 
-## Tech Stack
-- Java 8+
-- JDBC (MySQL Connector/J)
-- MySQL
-- Console-based input/output
+- Downloaded JDK from Oracle Downloads. Because open-source isn't cool enough.
+- Installed MySQL Connector .deb: `mysql-connector-j_9.4.0-1ubuntu22.04_all.deb`. Fun times.
+- Verified the files at `/usr/share/java/`:
+  ```
+  ls /usr/share/java/
+  java-atk-wrapper.jar
+  java_defaults.mk
+  libintl-0.21.jar
+  libintl.jar
+  mysql-connector-j-9.4.0.jar
+  mysql-connector-java-9.4.0.jar
+  ```
+  Ah, the sweet smell of JAR files.
+- Copied into project structure: `cp /usr/share/java/mysql-connector-j-9.4.0.jar ~/SuckingJavaProjects/student-db/lib/`. Because manual labor is therapeutic.
+- Grabbed dotenv dependencies because why not:
+  ```
+  cd lib
+  wget https://repo1.maven.org/maven2/io/github/cdimascio/dotenv-java/3.0.0/dotenv-java-3.0.0.jar
+  ```
+  More JARs to clutter your lib folder.
 
-
-## Setup Instructions
-1. Install MySQL and create a database `student_db`.
-2. Run the schema definition from `schema.sql` in MySQL.
+## Final Words
+Enjoy this little shitty Java thing. Or don't. Your call.
