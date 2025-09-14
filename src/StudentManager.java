@@ -1,6 +1,6 @@
 import java.sql.*;
 import io.github.cdimascio.dotenv.Dotenv;  
-
+import java.util.Scanner;
 
 public class StudentManager {
     private static final Dotenv dotenv = Dotenv.load();  // Load .env file
@@ -30,13 +30,27 @@ public class StudentManager {
         }
     }
 
+    private void displayMenu() {
+        System.out.println("\n===== Student Management System =====");
+        System.out.println("1. View All Students");
+        System.out.println("2. Add Student");
+        System.out.println("3. Update Student");
+        System.out.println("4. Delete Student");
+        System.out.println("5. Search Student by ID");
+        System.out.println("6. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
 
     public static void main(String[] args) {
-    StudentManager manager = new StudentManager();
-    Connection conn = manager.connectToDatabase();
-    if (conn != null) {
-        System.out.println("Database connection successful.");
-        manager.closeConnection(conn);
-    }
-    }
+        StudentManager manager = new StudentManager();
+        Scanner scanner = new Scanner(System.in);
+
+
+        while (true) {
+            manager.displayMenu();
+            String input = scanner.nextLine();
+            System.out.println("Option " + input + " selected");
+            }
+        }
 }
