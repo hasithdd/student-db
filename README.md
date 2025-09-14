@@ -16,3 +16,18 @@ mysql-connector-java-9.4.0.jar"
 
 then I coppied into this project structure : cp /usr/share/java/mysql-connector-j-9.4.0.jar ~/SuckingJavaProjects/student-db/lib/
 
+Instructions:
+
+# Student Management System (Console + JDBC)
+
+
+## Tech Stack
+- Java 8+
+- JDBC (MySQL Connector/J)
+- MySQL
+- Console-based input/output
+
+
+## Setup Instructions
+1. Install MySQL and create a database `student_db`.
+2. Run the schema definition from `schema.sql` in MySQL.
