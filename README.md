@@ -20,6 +20,11 @@ And pray it works. If it doesn't, well, that's on you.
 ```
 docker-compose ps
 ```
+
+### Open Shell in App Container:
+```
+docker-compose exec app bash
+```
 Or, if you're feeling adventurous and know the container ID:
 ```
 docker exec -it <container_id> bash
