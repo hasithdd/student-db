@@ -1,6 +1,8 @@
 # Student Management System (Console + JDBC) - Because Who Doesn't Love Typing in a Terminal?
 
-Oh joy, you're on Linux (Ubuntu 22), and apparently, Windows is too mainstream for you. Lucky you! This is a "Student Management System" built with the elegance of console I/O and JDBC. Because nothing says "modern development" like manually typing commands and hoping MySQL doesn't crash. (I use chatgpt for modify this readme file! god forgive me!)
+I’m just a python dev who speeds things up with c++. I don’t use windows, so I never tested this crap on windows — god knows if it works there. On ubuntu it runs.
+
+This is a working java piece of shit. Make sure you use docker for safety, because java smells. I use docker to keep away any diseases from this language.. (I use chatgpt for modify this readme file! god forgive me!)
 
 ## Tech Stack (Or Lack Thereof)
 - **Java 8+**: Because why use anything newer when you can cling to the past?
